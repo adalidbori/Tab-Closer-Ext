@@ -1,0 +1,108 @@
+/* The switch - the box around the slider */
+body{
+    width: 200px;
+    height: 240px;
+    background-color: aliceblue;
+}
+.flipswitch {
+  position: relative;
+  width: 86px;
+}
+.flipswitch input[type=checkbox] {
+  display: none;
+}
+.flipswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #999999;
+  border-radius: 8px;
+}
+.flipswitch-inner {
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.flipswitch-inner:before, .flipswitch-inner:after {
+  float: left;
+  width: 50%;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+  font-size: 18px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.flipswitch-inner:before {
+  content: "ON";
+  padding-left: 12px;
+  background-color: #029907;
+  color: #FFFFFF;
+}
+.flipswitch-inner:after {
+  content: "OFF";
+  padding-right: 12px;
+  background-color: #EB0202;
+  color: #FFFFFF;
+  text-align: right;
+}
+.flipswitch-switch {
+  width: 31px;
+  margin: -3.5px;
+  background: #FFFFFF;
+  border: 1px solid #999999;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 59px;
+  transition: all 0.3s ease-in 0s;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+  margin-left: 0;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+  right: 0;
+}
+
+
+
+.testbutton {
+  font-family: arial;
+  color: #14396A !important;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px #7CACDE;
+  box-shadow: 1px 1px 1px #BEE2F9;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid #3866A3;
+  background: #63B8EE;
+  background: linear-gradient(to top, #63B8EE, #468CCF);
+}
+.testbutton:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(to top, #468CCF, #63B8EE);
+}
+
+
+.css-input {
+  padding: 5px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: 9px;
+  box-shadow: 0px 0px 4px rgba(66,66,66,.29);
+  text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+}
+.css-input:focus {
+  outline:none;
+}
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
