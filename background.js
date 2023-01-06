@@ -1,21 +1,26 @@
 
-chrome.tabs.onCreated.addListener(function(tab) {
-    chrome.tabs.query({}, function(tabs) {
+chrome.tabs.onCreated.addListener(function (tab) {
+    chrome.tabs.query({}, function (tabs) {
         //validar que el check este en verde
         let fs = "";
         chrome.storage.local.get('fs', function (result) {
             fs = result.fs;
-            if(fs){//el check esta en verde
+            if (fs) {//el check esta en verde
                 let cantidadTabs = 0;
                 chrome.storage.local.get('tabsallow', function (result) {
                     cantidadTabs = result.tabsallow;
                     //validar que la cantidad de tabs posibles sea mayor o igual a dos
-                    if(cantidadTabs >= 2){
-                        if(tabs.length > cantidadTabs){
-                            for(let i = 0; i < tabs.length-cantidadTabs; i++){
-                                chrome.tabs.remove(tabs[i].id, function(){});
+                    if (cantidadTabs >= 2) {
+                        if (tabs.length > cantidadTabs) {
+                            for (let i = 0; i < tabs.length - cantidadTabs; i++) {
+                                try {
+                                    chrome.tabs.remove(tabs[i].id, function () { });
+                                } catch (error) {
+                                    // código que se ejecuta si se produce un error
+                                    console.log(error);
+                                }
                             }
-                        }                     
+                        }
                     }
                 });
             }
